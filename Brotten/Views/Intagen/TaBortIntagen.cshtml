@@ -1,0 +1,95 @@
+﻿@model Brotten.Models.Tbl_Intagen
+
+@{
+    ViewData["Title"] = "TaBortIntagen";
+}
+<style> 
+    /* Add this CSS to your styles.css file */
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        padding: 20px;
+    }
+
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h3, h4 {
+        text-align: center;
+    }
+
+    form {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        color: #fff;
+    }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+
+
+
+</style>
+
+<h1>Ta bort Intagen från Registret</h1>
+
+<h3>Skriv in namn och ID på den intagne</h3>
+
+
+
+    <hr/>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Intagen_nr)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Intagen_nr)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fornamn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fornamn)
+        </dd>
+    </dl>
+    @ViewBag.Error;
+    <form asp-action="TaBortIntagen" method="post">
+        <div class="form-group">
+            <label for="Fornamn">Förnamn:</label>
+            <input type="text" class="form-control" id="Fornamn" name="Fornamn">
+        </div>
+        <div class="form-group">
+            <label for="Intagen_nr">Intagsnummer:</label>
+            <input type="text" class="form-control" id="Intagen_nr" name="Intagen_nr">
+        </div>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </form>
+
+   

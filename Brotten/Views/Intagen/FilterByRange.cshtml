@@ -1,0 +1,63 @@
+﻿@model List<Brotten.Models.Tbl_Intagen>
+
+@{
+    ViewData["Title"] = "Filter Results by Range";
+}
+
+<style>
+    .form {
+        max-width: 400px;
+        margin: auto;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+    </style>
+<h1>Filter Results by Range</h1>
+
+<form asp-action="FilterByRange" method="get">
+    <div class="form-group">
+        <label for="minRange">Min Range</label>
+        <input type="number" class="form-control" name="minRange">
+    </div>
+    <div class="form-group">
+        <label for="maxRange">Max Range</label>
+        <input type="number" class="form-control" name="maxRange">
+    </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Inmate Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var inmate in Model)
+        {
+            <tr>
+                <td>@inmate.Fornamn</td>
+                <td>@inmate.Efternamn</td>
+                <td>@inmate.Intagen_nr</td>
+            </tr>
+        }
+    </tbody>
+</table>

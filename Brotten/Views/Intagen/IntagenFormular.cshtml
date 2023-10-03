@@ -1,0 +1,58 @@
+﻿@model Brotten.Models.Tbl_Intagen
+
+@{
+    ViewData["Title"] = "IntagenFormular";
+}
+<style>
+    .form {
+        max-width: 400px;
+        margin: auto;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+</style>
+
+<h1>IntagenFormular</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="IntagenFormular" class="form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Fornamn" class="control-label">Förnamn:</label>
+                <input asp-for="Fornamn" class="form-control" required/>
+                <span asp-validation-for="Fornamn" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Efternamn" class="control-label">Efternamn:</label>
+                <input asp-for="Efternamn" class="form-control" required/>
+                <span asp-validation-for="Efternamn" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Skapa</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+

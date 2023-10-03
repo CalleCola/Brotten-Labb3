@@ -1,0 +1,45 @@
+﻿@model List<Tbl_Intagen>
+
+@{
+    ViewData["Title"] = "Filter By Category";
+}
+
+<h1>Filter</h1>
+
+<form asp-action="FilterByCategory" method="post">
+    <div class="form-group">
+        <label for="brottTyp">Brott Typ</label>
+        <select class="form-control" id="brottTyp" name="brottTyp">
+            @foreach (var brottTyp in ViewBag.BrottTyper)
+            {
+                <option value="@brottTyp">@brottTyp</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Sök</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Förnamn</th>
+            <th>Efternamn</th>
+            <th>ID</th>
+            <th>Brott Typ</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var inmate in Model)
+            {
+                <tr>
+                    <td>@inmate.Fornamn</td>
+                    <td>@inmate.Efternamn</td>
+                    <td>@inmate.Intagen_nr</td>
+                    <td>@inmate.Brott_Typ</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

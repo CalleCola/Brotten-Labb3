@@ -1,0 +1,64 @@
+﻿@model List<Brotten.Models.Tbl_Intagen>
+
+@{
+    ViewData["Title"] = "Filter Results";
+}
+<style>
+    .form {
+        max-width: 400px;
+        margin: auto;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+    </style>
+<h1>Sök i Registret!</h1>
+
+<form asp-action="FilterResults" method="get">
+    <h3> Sortera valfritt i  Registret</h3>
+    <div class="form-group">
+        <label for="filterBy">Sortera från: </label>
+        <select class="form-control" id="filterBy" name="filterBy">
+            <option value="Fornamn">Förnamn</option>
+            <option value="Efternamn">Efternamn</option>
+            <option value="Intagen_nr">IntagsID</option>
+        </select>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Förnamn</th>
+            <th>Efternamn</th>
+            <th>ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var inmate in Model)
+        {
+            <tr>
+                <td>@inmate.Fornamn</td>
+                <td>@inmate.Efternamn</td>
+                <td>@inmate.Intagen_nr</td>
+            </tr>
+        }
+    </tbody>
+</table>

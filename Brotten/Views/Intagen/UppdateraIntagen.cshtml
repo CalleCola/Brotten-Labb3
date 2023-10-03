@@ -1,0 +1,67 @@
+﻿@model Brotten.Models.Tbl_Intagen
+
+@{
+    ViewData["Title"] = "UppdateraIntagen";
+}
+
+<style>
+    .container {
+        max-width: 500px;
+        margin: auto;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+</style>
+
+<h1>UppdateraIntagen</h1>
+
+<h4>Välj ID:t på den Intagna vars namn behöver uppdateras</h4>
+<hr />
+<div class="container">
+    <form asp-action="UppdateraIntagen">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Intagen_nr" class="control-label"></label>
+            <input asp-for="Intagen_nr" class="form-control" />
+            
+        </div>
+        <div class="form-group">
+            <label asp-for="Fornamn" class="control-label"></label>
+            <input asp-for="Fornamn" class="form-control" />
+            
+        </div>
+        <div class="form-group">
+            <label asp-for="Efternamn" class="control-label"></label>
+            <input asp-for="Efternamn" class="form-control" />
+            
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+

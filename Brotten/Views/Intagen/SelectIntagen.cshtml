@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Brotten.Models.Tbl_Intagen>
+
+@{
+    ViewData["Title"] = "SelectIntagen";
+}
+
+<h1>SelectIntagen</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Intagen_nr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fornamn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Efternamn)
+            </th>
+            <th>Actions</th> <!-- Add a header for actions -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Intagen_nr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fornamn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Efternamn)
+                </td>
+                <td>
+                    <a href="@Url.Action("UppdateraIntagen", "Intagen", new { id = item.Intagen_nr })">Edit</a> |
+                    <a href="@Url.Action("DeleteButton", "Intagen", new { Intagen_nr = item.Intagen_nr })">Delete</a>
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (ViewBag.antal != "")
+{
+    <p> ViewBag.antal innehåller: @ViewBag.antal</p>
+}
+@if (ViewBag.error != "")
+{
+    <p> ViewBag.antal innehåller: @ViewBag.error</p>
+}

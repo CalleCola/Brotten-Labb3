@@ -1,0 +1,44 @@
+﻿@model List<Brotten.Models.Tbl_Intagen>
+
+@{
+    ViewData["Title"] = "Search By ID";
+}
+
+<h1>Sök i Registret</h1>
+
+<p> Skriv in det nummer som den önskade brottslingen har som intags-ID för att se om hen finns i registret</p>
+
+<p> OBS ALLA ID:n BÖRJAR FRÅN 100 > </p>
+
+<form asp-action="SearchById" method="get">
+    <div class="form-group">
+        <label for="id">ID:</label>
+        <input type="text" class="form-control" id="id" name="id">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Förnamn</th>
+            <th>Efternamn</th>
+            <th>Brott Typ</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var inmate in Model)
+            {
+                <tr>
+                    <td>@inmate.Intagen_nr</td>
+                    <td>@inmate.Fornamn</td>
+                    <td>@inmate.Efternamn</td>
+                    <td>@inmate.Brott_Typ</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
